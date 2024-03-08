@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h1 {
+    color: #333;
+}
+
+.exercise-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exercise-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.exercise-list li:last-child {
+    border-bottom: none;
+}

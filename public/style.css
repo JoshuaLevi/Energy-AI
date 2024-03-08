@@ -1,0 +1,155 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    font-size: 16px;
+
+
+}
+.title {
+    font-size: 30px;
+    text-align: center;
+
+}
+.slogan {
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+}
+header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left:710px;
+    margin-right:710px;
+    margin-top: 10px;
+    line-height: 1px;
+    display:flex;
+    flex-direction: column;
+    border: 3px solid black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    /*font-family: 'Roboto', Arial, sans-serif;*/
+
+
+    background-image: url("./assets/gymbackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; /* Center the background image */
+}
+
+.chatbox {
+    line-height: 1.6;
+    border: 3px solid black;
+    padding: 20px;
+    height: 600px; /* Adjust as needed */
+    overflow-y: auto;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    max-width: 800px;
+    margin: 30px auto 10px; /* Top, Horizontal, Bottom margins */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+
+.user-message {
+
+    align-self: flex-start;
+}
+
+.message {
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid #64AEFF;
+    display: flex;
+    justify-content: flex-start; /* Default alignment to the left */
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 25px; /* Increased for more rounded corners */
+    max-width: 80%; /* Adjust as needed */
+    word-wrap: break-word;
+    background-color: #1B84F7; /* Default background for user messages */
+    color: white;
+}
+
+.bot-message {
+    border: 1px solid grey;
+    justify-content: flex-end; /* Align bot messages to the right */
+    background-color: #C5CAD0; /* Different background for bot messages */
+    margin-left: auto; /* Pushes the message to the right */
+    color: black;
+}
+
+
+#fitnessQuestionForm {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#fitnessQuestionForm input[type="text"] {
+    flex-grow: 1;
+    margin: 0 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#fitnessQuestionForm .chat-button {
+    border: 2px solid black;
+    padding: 10px 20px;
+
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px; /* Creates space between the input and buttons */
+}
+
+#clearHistoryBtn {
+    background-color: #ff4d4d; /* Red color */
+
+}
+
+#submitButton {
+    background-color: #007bff; /* Blue color */
+
+}
+
+/* Spinner CSS */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-button {
+    animation: spin 1s infinite linear;
+}
+
+.chat-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px; /* Space between the clear button and the input field */
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    border: 2px solid black;
+
+}
+
+.chat-button.red {
+    background-color: #ff4d4d; /* Red color for the clear button */
+
+}
+
+.chat-button.blue {
+    background-color: #007bff; /* Blue color for the send button */
+
+}
+
