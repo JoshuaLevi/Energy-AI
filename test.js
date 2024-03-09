@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-// Adjust the import for your specific usage, this is just an example
 import { ChatOpenAI } from '@langchain/openai';
 
 dotenv.config();
@@ -19,13 +18,21 @@ app.use(session({
     cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
-// Simplified regex for detail extraction (extend these patterns according to your requirements)
+// Correctly define and initialize the model variable here
+const model = new ChatOpenAI({
+    azureOpenAIApiKey: process.env.AZURE_OPENAI_API_KEY,
+    azureOpenAIApiVersion: process.env.OPENAI_API_VERSION,
+    azureOpenAIApiInstanceName: process.env.INSTANCE_NAME,
+    azureOpenAIApiDeploymentName: process.env.ENGINE_NAME,
+});
+
+
+
 const detailPatterns = {
-    weight: /(\d+)\s*kg/i,
-    height: /(\d+)\s*cm/i,
-    activityDuration: /(\d+)\s*(hours?|minutes?)\s*a\s*day/i, // Captures "X hour(s) a day" or "X minute(s) a day"
-    activityFrequency: /(\d+)\s*times\s*a\s*week/i, // Captures "X times a week"
-    age: /I am (\d+) years old/i,
+    weight: /(\d+)\s*kg/i, // Captures "X kg"
+    height: /(\d+)\s*cm/i, // Captures "X cm"
+    time: /(\d+)\s*(hours?|minutes?)/i, // Captures "X hour(s)" or "X minute(s)"
+    // Extend with more patterns as needed
 };
 
 app.post('/ask-fitness-bot', async (req, res) => {
@@ -34,26 +41,29 @@ app.post('/ask-fitness-bot', async (req, res) => {
         req.session.userDetails = {};
     }
 
-    // Extract and store details using the updated detailPatterns
+    // Extract and store details
     Object.keys(detailPatterns).forEach(key => {
         const match = userQuestion.match(detailPatterns[key]);
         if (match) {
-            // For activity duration and frequency, store the full matched string for context
-            req.session.userDetails[key] = match[0];
+            req.session.userDetails[key] = match[1] + (match[2] ? " " + match[2] : "");
         }
     });
 
-    let prompt = `You are a fitness bot. Given the user details: ${JSON.stringify(req.session.userDetails)}. Let's dive into this conversation: ${userQuestion}`;
+    let prompt = `You are a fitness bot. Let's dive into this conversation: ${userQuestion}`;
+    if (Object.keys(req.session.userDetails).length > 0) {
+        prompt = `Given the user details: ${JSON.stringify(req.session.userDetails)}. ${prompt}`;
+    }
 
     try {
-        const response = await model.invoke(prompt); // Ensure this matches your actual model invocation logic
-        req.session.history = `${req.session.history}\nUser: ${userQuestion}\nBot: ${response.content}`;
+        const response = await model.invoke(prompt); // Adjust to your model invocation method
+        req.session.history = userQuestion + "\nBot: " + response.content;
         res.json({ answer: response.content });
     } catch (error) {
         console.error('Error communicating with fitness bot:', error);
         res.status(500).send('An error occurred while trying to fetch an answer.');
     }
 });
+
 
 
 app.post('/clear-history', (req, res) => {
