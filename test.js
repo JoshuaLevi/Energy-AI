@@ -1,10 +1,10 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const path = require('path');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-// Assuming ChatOpenAI is a mockup or placeholder for actual OpenAI API usage
-const { ChatOpenAI } = require("@langchain/openai");
+import express from 'express';
+import dotenv from 'dotenv';
+import path from 'path';
+import bodyParser from 'body-parser';
+import session from 'express-session';
+// Adjust the import for your specific usage, this is just an example
+import { ChatOpenAI } from '@langchain/openai';
 
 dotenv.config();
 
