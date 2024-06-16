@@ -1,7 +1,7 @@
-# Gymbro-AI
+# energy ai
 
 ## Overview
-Welcome to the Gymbro-AI, an interactive web application designed to answer your personalized fitness questions! With this app, you can communicate in natural language with an AI-driven chatbot to get advice on fitness, health, and workouts.
+Welcome to the energy-AI, an interactive web application designed to answer your personalized fitness questions! With this app, you can communicate in natural language with an AI-driven chatbot to get advice on fitness, health, and workouts.
 
 ## Technologies
 This application is built using the following technologies:
