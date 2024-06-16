@@ -1,7 +1,7 @@
 # Energy ai
 
 ## Overview
-Welcome to the Energy-AI, an interactive web application designed to answer your personalized fitness questions! With this app, you can communicate in natural language with an AI-driven chatbot to get advice on fitness, health, and workouts.
+Welcome to the Energy-AI, an interactive web application designed to answer your personalized energy questions! With this app, you can communicate in natural language with an AI-driven chatbot to get advice on your energy from your solar panels and what to do with it.
 
 ## Technologies
 This application is built using the following technologies:
