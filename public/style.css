@@ -3,39 +3,41 @@ body, html {
     padding: 0;
     font-family: Roboto;
     font-size: 16px;
-
-
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .title {
     font-size: 30px;
     text-align: center;
-
 }
+
 .slogan {
     font-size: 20px;
     text-align: center;
     color: gray;
 }
+
 header {
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: white;
     border-radius: 50%;
-    margin-left:710px;
-    margin-right:710px;
     margin-top: 10px;
     line-height: 1px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     border: 3px solid black;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 50%;
 }
 
 body {
-    /*font-family: 'Roboto', Arial, sans-serif;*/
-
-
-    background-image: url("./assets/gymbackground.jpg");
+    background-image: url("./assets/zonnepaneelbackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -55,14 +57,11 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
-
 .user-message {
-
     align-self: flex-start;
 }
 
 .message {
-
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.2);
     border: 1px solid #64AEFF;
     display: flex;
@@ -84,54 +83,38 @@ body {
     color: black;
 }
 
-
-#fitnessQuestionForm {
+form {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 10px auto;
     max-width: 600px;
+    width: 100%; /* Ensure form takes full width available */
 }
 
-#fitnessQuestionForm input[type="text"] {
-    flex-grow: 1;
-    margin: 0 10px;
+form input[type="text"], form input[type="number"] {
+    width: 100%; /* Ensure input takes full width available */
+    margin-bottom: 10px;
     padding: 10px;
     border: 2px solid black;
     border-radius: 20px;
 }
 
-#fitnessQuestionForm .chat-button {
+form button {
     border: 2px solid black;
     padding: 10px 20px;
-
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     color: white;
-    margin-left: 10px; /* Creates space between the input and buttons */
+    margin: 10px 0; /* Creates space between buttons */
 }
 
-#clearHistoryBtn {
-    background-color: #ff4d4d; /* Red color */
-
-}
-
-#submitButton {
-    background-color: #007bff; /* Blue color */
-
-}
-
-/* Spinner CSS */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loading-button {
+form button.loading-button {
     animation: spin 1s infinite linear;
 }
 
-.chat-button {
+form button.chat-button {
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -140,16 +123,25 @@ body {
     font-weight: bold;
     color: white;
     border: 2px solid black;
-
 }
 
-.chat-button.red {
+form button.chat-button.red {
     background-color: #ff4d4d; /* Red color for the clear button */
-
 }
 
-.chat-button.blue {
+form button.chat-button.blue {
     background-color: #007bff; /* Blue color for the send button */
-
 }
 
+/* Spinner CSS */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add styles for the labels */
+form label {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
